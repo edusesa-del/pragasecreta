@@ -955,3 +955,14 @@ main h2 {
   color: #fff;
   padding: 1em;
 }
+.menu-toggle span {
+  display: block;
+  height: 4px;
+  width: 28px;
+  margin: 6px 0;
+  background: #fff;      /* Cambia aquí por el color que quieras */
+  border-radius: 2px;
+  transition: 0.4s;
+  opacity: 1;            /* Puedes aumentar la opacidad si estaba baja */
+}
+
