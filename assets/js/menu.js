@@ -32,3 +32,5 @@ window.addEventListener('resize', () => {
     document.querySelectorAll('.show-submenu').forEach(li => li.classList.remove('show-submenu'));
   }
 });
+var menuToggle = document.getElementById('menu-toggle');
+menuToggle.addEventListener('click', ...)

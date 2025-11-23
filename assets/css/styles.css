@@ -891,3 +891,8 @@ main h2 {
   vertical-align: middle; /* para que se alinee verticalmente con el texto */
 }
 
+.menu-toggle {
+  background: none;
+  border: none;
+  /* ...tus estilos previos */
+}
