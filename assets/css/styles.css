@@ -962,3 +962,12 @@ main h2 {
   display: block;
   margin: 0 auto;
 }
+
+.img-mediana {
+  max-width: 500px; /* Define el ancho máximo visible */
+  width: 100%;      /* Se adapta al ancho de la pantalla */
+  height: auto;     /* Mantiene la proporción de la imagen */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
