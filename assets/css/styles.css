@@ -896,3 +896,48 @@ main h2 {
   border: none;
   /* ...tus estilos previos */
 }
+
+.menu {
+  display: flex; /* muestra el menú en desktop */
+  gap: 1em;
+  list-style: none;
+}
+.menu-toggle {
+  display: none; /* en desktop, oculto */
+}
+
+/* Para pantallas pequeñas (móvil) */
+@media (max-width: 900px) {
+  .menu {
+    display: none; /* oculta el menú en móvil por defecto */
+    flex-direction: column;
+    position: absolute;
+    top: 60px;      /* ajusta según tu header */
+    left: 0;
+    width: 100vw;
+    background: #fff;
+    padding: 1em 0;
+    z-index: 10;
+  }
+  .menu.active {
+    display: flex;  /* lo muestra cuando está "active" */
+  }
+  .menu-toggle {
+    display: block; /* solo visible en móvil */
+    position: absolute;
+    top: 10px;      /* ajusta según tu diseño */
+    right: 10px;
+    z-index: 20;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+  }
+  .menu-toggle span {
+    display: block;
+    height: 4px;
+    margin: 6px 0;
+    background: #333;
+    border-radius: 2px;
+    transition: 0.4s;
+  }
+}
