@@ -149,6 +149,28 @@
 Comparte el contenido citando la fuente y enlazando a esta web. 
 Queda prohibido cualquier uso comercial sin autorización previa.
 </footer>
-<script src="/assets/js/menu.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var menuToggle = document.getElementById('menu-toggle');
+  var menu = document.querySelector('.menu');
+  menuToggle.addEventListener('click', function() {
+    menu.classList.toggle('active');
+    // Accesibilidad
+    var expanded = menu.classList.contains('active');
+    menuToggle.setAttribute('aria-expanded', expanded);
+  });
+
+  // Mostrar submenús cuando se pulse el título en móvil/táctil
+  document.querySelectorAll('.menu .has-submenu > .menu-titulo').forEach(function(el){
+    el.addEventListener('click', function(e){
+      // Solo añade toggle en móvil
+      if(window.innerWidth <= 900){
+        e.preventDefault();
+        this.parentNode.classList.toggle('show-submenu');
+      }
+    });
+  });
+});
+</script>
 </body>
 </html>
