@@ -971,3 +971,24 @@ main h2 {
   margin-left: auto;
   margin-right: auto;
 }
+
+@media (max-width: 600px) {
+  .titulo {
+    max-width: 100%; /* En pantallas pequeñas, ocupa todo el ancho disponible */
+  }
+}
+h1 {
+  font-size: 3em; /* para escritorio */
+  word-break: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  /* Otros estilos que desees */
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 6vw; /* valor flexible para móvil */
+    text-align: center; /* opcional */
+    padding: 0 5vw; /* opcional, margen lateral */
+  }
+}
