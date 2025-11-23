@@ -941,3 +941,17 @@ main h2 {
     transition: 0.4s;
   }
 }
+.menu { /* versión móvil por defecto */
+  display: none;
+  background: #00385d; /* fondo oscuro para visibilidad */
+  color: #fff;         /* texto blanco */
+  /* demás estilos */
+}
+.menu.active { /* cuando el menú está abierto */
+  display: flex;       /* o block si prefieres */
+  flex-direction: column;
+}
+.menu li a {
+  color: #fff;
+  padding: 1em;
+}
