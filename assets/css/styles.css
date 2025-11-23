@@ -965,4 +965,29 @@ main h2 {
   transition: 0.4s;
   opacity: 1;            /* Puedes aumentar la opacidad si estaba baja */
 }
+/* Menú en desktop (pantallas grandes) */
+.menu {
+  display: flex;            /* O block según tu diseño */
+  gap: 1em;
+  list-style: none;
+  /* resto de estilos generales */
+}
+.menu-toggle {
+  display: none;            /* Oculta el botón hamburguesa en desktop */
+}
+
+/* Menú en móvil (<900px) */
+@media (max-width: 900px) {
+  .menu {
+    display: none;          /* Oculta el menú por defecto en móvil */
+    flex-direction: column;
+    /* posición, fondo, etc. para menú desplegable */
+  }
+  .menu.active {
+    display: flex;          /* Muestra el menú cuando se pulsa el botón */
+  }
+  .menu-toggle {
+    display: block;         /* Muestra el botón hamburguesa en móvil */
+  }
+}
 
