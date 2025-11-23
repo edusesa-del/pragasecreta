@@ -1,36 +1,37 @@
-const toggleButton = document.querySelector('.menu-toggle');
-const menu = document.querySelector('.menu');
+document.addEventListener('DOMContentLoaded', function() {
+  // Elementos principales
+  var menuToggle = document.getElementById('menu-toggle');
+  var menu = document.querySelector('.menu');
 
-// Selecciona cualquier elemento que sea hijo directo de un li.has-submenu,
-// tanto si es un <a> como un <span class="menu-titulo">
-const menuTriggers = document.querySelectorAll('.menu li.has-submenu > a, .menu li.has-submenu > .menu-titulo');
+  // Abrir o cerrar el menú principal en móvil
+  if (menuToggle && menu) {
+    menuToggle.addEventListener('click', function() {
+      menu.classList.toggle('active');
+      // Accesibilidad para lectores de pantalla
+      var expanded = menu.classList.contains('active');
+      menuToggle.setAttribute('aria-expanded', expanded);
+    });
+  }
 
-// Abrir o cerrar el menú principal en móvil
-if (toggleButton) {
-  toggleButton.addEventListener('click', () => {
-    menu.classList.toggle('active');
+  // Abrir o cerrar submenús en móvil (solo en vista móvil)
+  document.querySelectorAll('.menu li.has-submenu > .menu-titulo').forEach(function(trigger) {
+    trigger.addEventListener('click', function(e) {
+      if (window.innerWidth <= 900) {
+        e.preventDefault(); // Solo en móvil, para permitir el toggle
+        var parentLi = this.parentElement;
+        parentLi.classList.toggle('show-submenu');
+      }
+    });
   });
-}
 
-// Abrir o cerrar submenús en móvil
-menuTriggers.forEach(trigger => {
-  trigger.addEventListener('click', (e) => {
-    if (window.innerWidth <= 900) {
-      e.preventDefault(); // Evita navegar si es <a>
-      const parentLi = trigger.parentElement;
-      parentLi.classList.toggle('show-submenu');
+  // Resetear estados al cambiar el tamaño de la ventana
+  window.addEventListener('resize', function() {
+    if (window.innerWidth > 900 && menu) {
+      menu.classList.remove('active');
+      document.querySelectorAll('.show-submenu').forEach(function(li) {
+        li.classList.remove('show-submenu');
+      });
+      menuToggle.setAttribute('aria-expanded', false);
     }
   });
 });
-
-// Resetear estados al cambiar el tamaño de la ventana
-window.addEventListener('resize', () => {
-  if (window.innerWidth > 900) {
-    // Oculta menú principal
-    menu.classList.remove('active');
-    // Cierra cualquier submenú abierto
-    document.querySelectorAll('.show-submenu').forEach(li => li.classList.remove('show-submenu'));
-  }
-});
-var menuToggle = document.getElementById('menu-toggle');
-menuToggle.addEventListener('click', ...)
