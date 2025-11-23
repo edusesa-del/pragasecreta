@@ -891,103 +891,58 @@ main h2 {
   vertical-align: middle; /* para que se alinee verticalmente con el texto */
 }
 
-.menu-toggle {
-  background: none;
-  border: none;
-  /* ...tus estilos previos */
-}
-
+/* Menú y hamburguesa por defecto: DESKTOP (pantalla grande) */
 .menu {
-  display: flex; /* muestra el menú en desktop */
+  display: flex;
   gap: 1em;
   list-style: none;
+  justify-content: center;
 }
 .menu-toggle {
-  display: none; /* en desktop, oculto */
+  display: none;
+  /* otros estilos si quieres */
 }
 
-/* Para pantallas pequeñas (móvil) */
+/* SOLO móvil (<900px) */
 @media (max-width: 900px) {
   .menu {
-    display: none; /* oculta el menú en móvil por defecto */
+    display: none;
     flex-direction: column;
     position: absolute;
-    top: 60px;      /* ajusta según tu header */
+    top: 60px;
     left: 0;
     width: 100vw;
-    background: #fff;
+    background: #00385d; /* fondo oscuro para contraste */
+    color: #fff;
+    z-index: 999;
     padding: 1em 0;
-    z-index: 10;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    max-height: calc(100vh - 50px);
+    overflow-y: auto;
   }
   .menu.active {
-    display: flex;  /* lo muestra cuando está "active" */
+    display: flex;
   }
   .menu-toggle {
-    display: block; /* solo visible en móvil */
+    display: block;
     position: absolute;
-    top: 10px;      /* ajusta según tu diseño */
+    top: 10px;
     right: 10px;
-    z-index: 20;
+    z-index: 1100;
     width: 40px;
     height: 40px;
+    background: none;
+    border: none;
     cursor: pointer;
   }
   .menu-toggle span {
     display: block;
     height: 4px;
+    width: 28px;
     margin: 6px 0;
-    background: #333;
+    background: #fff;   /* Color blanco, visible sobre fondo oscuro */
     border-radius: 2px;
-    transition: 0.4s;
+    opacity: 1;
   }
 }
-.menu { /* versión móvil por defecto */
-  display: none;
-  background: #00385d; /* fondo oscuro para visibilidad */
-  color: #fff;         /* texto blanco */
-  /* demás estilos */
-}
-.menu.active { /* cuando el menú está abierto */
-  display: flex;       /* o block si prefieres */
-  flex-direction: column;
-}
-.menu li a {
-  color: #fff;
-  padding: 1em;
-}
-.menu-toggle span {
-  display: block;
-  height: 4px;
-  width: 28px;
-  margin: 6px 0;
-  background: #fff;      /* Cambia aquí por el color que quieras */
-  border-radius: 2px;
-  transition: 0.4s;
-  opacity: 1;            /* Puedes aumentar la opacidad si estaba baja */
-}
-/* Menú en desktop (pantallas grandes) */
-.menu {
-  display: flex;            /* O block según tu diseño */
-  gap: 1em;
-  list-style: none;
-  /* resto de estilos generales */
-}
-.menu-toggle {
-  display: none;            /* Oculta el botón hamburguesa en desktop */
-}
-
-/* Menú en móvil (<900px) */
-@media (max-width: 900px) {
-  .menu {
-    display: none;          /* Oculta el menú por defecto en móvil */
-    flex-direction: column;
-    /* posición, fondo, etc. para menú desplegable */
-  }
-  .menu.active {
-    display: flex;          /* Muestra el menú cuando se pulsa el botón */
-  }
-  .menu-toggle {
-    display: block;         /* Muestra el botón hamburguesa en móvil */
-  }
-}
-
