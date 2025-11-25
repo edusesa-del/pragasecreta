@@ -260,13 +260,7 @@ main {
   text-shadow: 1px 2px 10px rgba(150, 180, 255, 0.7);
 }
 .restaurante em { font-style: italic; color: #c1d6ff; font-size: 0.9rem; }
-.restaurante a {
-  color: #f0c04a; 
-  text-decoration: none; 
-  font-weight: 700; 
-  transition: color 0.3s ease;
-}
-.restaurante a:hover { color: #ffffff; text-decoration: underline; }
+
 .menu-titulo {
   display: block; 
   padding: 12px 18px; 
@@ -453,9 +447,7 @@ hr{ border: none; border-top: 1px solid var(--color-borde); margin: var(--sp-6) 
   color: #c7e0ff;
   margin-bottom: .4rem;
 }
-.restaurante a{
-  color: var(--color-acento);
-}
+
 .restaurante a:hover{ color: #fff; }
 .restaurante em{ color: var(--color-texto-sec); }
 
@@ -984,11 +976,78 @@ h1 {
   hyphens: auto;
   /* Otros estilos que desees */
 }
-
 @media (max-width: 600px) {
-  h1 {
-    font-size: 6vw; /* valor flexible para móvil */
-    text-align: center; /* opcional */
-    padding: 0 5vw; /* opcional, margen lateral */
-  }
+h1 {
+font-size: 6vw; /* valor flexible para móvil */
+text-align: center; /* opcional */
+padding: 0 5vw; /* opcional, margen lateral */
+}
+}
+.header-background {
+position: relative;
+}
+
+/* ======================================= */
+/* ESTILOS PARA EL MENÚ FIJO LATERAL */
+/* ======================================= */
+
+#menu-platos-flotante {
+/* 1. POSICIONAMIENTO Y FIJACIÓN PERMANENTE */
+position: fixed; 
+top: 80px; 
+right: 15px; /* Reducimos la distancia del borde derecho ligeramente */
+width: 170px; /* HACEMOS EL MENÚ MÁS ESTRECHO */
+z-index: 500; 
+
+/* 2. ESTILO (manteniendo tu diseño) */
+background-color: var(--color-superficie);
+border: 1px solid var(--color-borde); 
+border-radius: var(--radius); 
+padding: 15px;
+box-shadow: var(--sombra-m);
+display: block; 
+} 
+
+#menu-platos-flotante h3 {
+font-family: 'Montserrat', sans-serif;
+font-size: 1.2rem;
+font-weight: 700;
+color: var(--color-acento); /* Amarillo (#f0c04a) */
+margin-top: 0;
+border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+padding-bottom: 8px;
+margin-bottom: 10px;
+}
+
+#menu-platos-flotante ul {
+list-style: none;
+padding: 0;
+margin: 0;
+}
+
+#menu-platos-flotante li {
+margin-bottom: 5px;
+}
+
+#menu-platos-flotante a {
+display: block;
+padding: 4px 0;
+/* Usamos el color de enlace estándar para uniformidad */
+color: var(--color-link); 
+text-decoration: none;
+font-size: 0.98rem;
+transition: color 0.2s;
+}
+
+#menu-platos-flotante a:hover {
+color: var(--color-acento); /* Destacar en amarillo al pasar el ratón */
+text-decoration: underline;
+}
+
+/* 📱 REGLA PARA MÓVILES (Ocultar el menú lateral en pantallas pequeñas) */
+@media (max-width: 1000px) {
+/* Si la pantalla es estrecha, deshabilitamos el menú flotante para que el contenido se lea bien */
+#menu-platos-flotante {
+display: none;
+}
 }
