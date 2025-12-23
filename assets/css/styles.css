@@ -1069,3 +1069,10 @@ text-decoration: underline;
 display: none;
 }
 }
+
+section h5 {
+  font-size: 1.15rem;   /* prueba entre 1.1 y 1.25 */
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
