@@ -314,11 +314,18 @@ main{
 main > * + *{ margin-top: var(--sp-5); }
 
 /* Tipografía y jerarquía genérica (no toca tu header h1) */
-h1,h2,h3,h4{ font-family: 'Montserrat', sans-serif; line-height: 1.2; }
-h1{ font-size: clamp(2rem, 3.2vw, 2.6rem); margin-bottom: .6rem; }
-h2{ font-size: clamp(1.6rem, 2.4vw, 2rem); color: var(--color-acento); letter-spacing: .06em; }
-h3{ font-size: clamp(1.25rem, 1.8vw, 1.5rem); color: #b6d6ff; }
-p{ color: var(--color-texto-sec); }
+h1,h2,h3,h4 { font-family: 'Montserrat', sans-serif; line-height: 1.2; }
+h1 { font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: .6rem; } /* Reducido de 2.6rem a 2.4rem */
+h2 { font-size: clamp(1.2rem, 2vw, 1.6rem); color: var(--color-acento); letter-spacing: .06em; } /* Reducido de 2rem a 1.8rem */
+h3 { font-size: clamp(1rem, 1.5vw, 1.25rem); color: #b6d6ff; } /* Reducido de 1.5rem a 1.25rem */
+p { color: var(--color-texto-sec); }
+h2.top-destacado {
+  background: none;
+}
+h2.top-destacado {
+  font-size: clamp(1rem, 1.2vw, 0.5rem); color: #b6d6ff; /* Reducido también para mantener consistencia */
+}
+
 
 /* Enlaces en contenido */
 main a{ color: var(--color-link); text-decoration: none; }
@@ -1075,4 +1082,22 @@ section h5 {
   margin-top: 2rem;
   margin-bottom: 0.75rem;
   font-weight: 600;
+}
+.top-destacado {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.3rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+
+  background: linear-gradient(100deg, #f0c04a 20%, #ffffff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+  margin-bottom: 1.2rem;
 }
