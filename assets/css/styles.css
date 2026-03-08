@@ -1103,3 +1103,20 @@ section h5 {
   margin-bottom: 1.2rem;
 }
 
+.resumen-restaurante {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: #2c3e50;
+    background-color: #fdf2e9;
+    padding: 10px 15px;
+    border-left: 4px solid #d35400;
+    margin: 10px auto; /* El 'auto' ayuda a centrar el bloque si tiene un ancho fijo */
+    border-radius: 0 5px 5px 0;
+    
+    /* ESTO ES LO QUE SOLUCIONA EL CENTRADO */
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    text-align: center;
+}
