@@ -1120,3 +1120,30 @@ section h5 {
     align-items: center;
     text-align: center;
 }
+/* Contenedor para las dos imágenes */
+.contenedor-murales {
+  display: flex;
+  flex-wrap: wrap;       /* Permite que bajen en móvil */
+  gap: 15px;            /* Espacio entre ellas */
+  justify-content: center; /* Las centra si sobra espacio */
+  margin: 20px 0;
+}
+
+.contenedor-murales img {
+  /* En PC: cada una ocupa el 45% del ancho (para que quepan las dos) */
+  /* Pero nunca miden más de 400px (para que no sean gigantes) */
+  width: 45%; 
+  max-width: 400px;     
+  min-width: 280px;      /* Si el espacio es menor a esto, saltan a la siguiente línea */
+  height: auto;
+  object-fit: cover;
+  border-radius: 4px;    /* Opcional: un toque estético */
+}
+
+/* Ajuste específico para móviles */
+@media (max-width: 600px) {
+  .contenedor-murales img {
+    width: 100%;        /* En móvil ocupan todo el ancho disponible */
+    max-width: 100%;    /* Sin restricciones de tamaño en móvil */
+  }
+}
